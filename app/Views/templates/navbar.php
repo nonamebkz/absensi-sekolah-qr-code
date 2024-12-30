@@ -29,7 +29,7 @@
                   </p>
                </a>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
                <a class="nav-link" href="javascript:;" id="navbarDropdownScan" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">qr_code</i>
                   <p class="d-lg-none d-md-block">
@@ -40,7 +40,7 @@
                   <a class="dropdown-item" href="<?= base_url('scan/masuk'); ?>">Absen masuk</a>
                   <a class="dropdown-item" href="<?= base_url('scan/pulang'); ?>">Absen pulang</a>
                </div>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
                <a class="nav-link <?= user()->toArray()['is_superadmin'] == '1' ? 'text-danger' : ''; ?>" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>

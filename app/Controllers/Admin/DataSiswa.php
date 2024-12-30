@@ -37,8 +37,7 @@ class DataSiswa extends BaseController
             'required' => 'Kelas harus diisi'
          ]
       ],
-      'jk' => ['rules' => 'required', 'errors' => ['required' => 'Jenis kelamin wajib diisi']],
-      'no_hp' => 'required|numeric|max_length[20]|min_length[5]'
+      'jk' => ['rules' => 'required', 'errors' => ['required' => 'Jenis kelamin wajib diisi']]
    ];
 
    public function __construct()
@@ -77,12 +76,15 @@ class DataSiswa extends BaseController
 
    public function formTambahSiswa()
    {
+      $timestamp = time();
+      
       $kelas = $this->kelasModel->getDataKelas();
 
       $data = [
          'ctx' => 'siswa',
          'kelas' => $kelas,
-         'title' => 'Tambah Data Siswa'
+         'title' => 'Tambah Data Siswa',
+         'nis' => $timestamp
       ];
 
       return view('admin/data/create/create-data-siswa', $data);
@@ -110,7 +112,6 @@ class DataSiswa extends BaseController
          nama: $this->request->getVar('nama'),
          idKelas: intval($this->request->getVar('id_kelas')),
          jenisKelamin: $this->request->getVar('jk'),
-         noHp: $this->request->getVar('no_hp'),
       );
 
       if ($result) {
@@ -180,7 +181,6 @@ class DataSiswa extends BaseController
          nama: $this->request->getVar('nama'),
          idKelas: intval($this->request->getVar('id_kelas')),
          jenisKelamin: $this->request->getVar('jk'),
-         noHp: $this->request->getVar('no_hp'),
       );
 
       if ($result) {

@@ -15,7 +15,6 @@ class PresensiGuruModel extends Model implements PresensiInterface
       'id_guru',
       'tanggal',
       'jam_masuk',
-      'jam_keluar',
       'id_kehadiran',
       'keterangan'
    ];
@@ -37,7 +36,6 @@ class PresensiGuruModel extends Model implements PresensiInterface
          'id_guru' => $id,
          'tanggal' => $date,
          'jam_masuk' => $time,
-         // 'jam_keluar' => '',
          'id_kehadiran' => Kehadiran::Hadir->value,
          'keterangan' => ''
       ]);
@@ -46,7 +44,6 @@ class PresensiGuruModel extends Model implements PresensiInterface
    public function absenKeluar(string $id, $time)
    {
       $this->update($id, [
-         'jam_keluar' => $time,
          'keterangan' => ''
       ]);
    }
@@ -66,7 +63,7 @@ class PresensiGuruModel extends Model implements PresensiInterface
       return $this->setTable('tb_guru')
          ->select('*')
          ->join(
-            "(SELECT id_presensi, id_guru AS id_guru_presensi, tanggal, jam_masuk, jam_keluar, id_kehadiran, keterangan FROM tb_presensi_guru) tb_presensi_guru",
+            "(SELECT id_presensi, id_guru AS id_guru_presensi, tanggal, jam_masuk,  id_kehadiran, keterangan FROM tb_presensi_guru) tb_presensi_guru",
             "{$this->table}.id_guru = tb_presensi_guru.id_guru_presensi AND tb_presensi_guru.tanggal = '$tanggal'",
             'left'
          )
@@ -111,7 +108,6 @@ class PresensiGuruModel extends Model implements PresensiInterface
       $tanggal,
       $idKehadiran,
       $jamMasuk,
-      $jamKeluar,
       $keterangan
    ) {
       $presensi = $this->getPresensiByIdGuruTanggal($idGuru, $tanggal);
@@ -129,10 +125,6 @@ class PresensiGuruModel extends Model implements PresensiInterface
 
       if ($jamMasuk != null) {
          $data['jam_masuk'] = $jamMasuk;
-      }
-
-      if ($jamKeluar != null) {
-         $data['jam_keluar'] = $jamKeluar;
       }
 
       return $this->save($data);

@@ -34,7 +34,6 @@ class GuruSeeder extends Seeder
                 'nama_guru' => $this->faker->name($gender == 'Laki-laki' ? 'male' : 'female'),
                 'jenis_kelamin' => $gender,
                 'alamat' => $this->faker->address(),
-                'no_hp' => $this->faker->numerify('08##########'),
                 'unique_code' => $this->faker->uuid()
             ]);
         }

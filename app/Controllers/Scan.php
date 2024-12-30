@@ -27,9 +27,8 @@ class Scan extends BaseController
 
    public function index($t = 'Masuk')
    {
-      $data = ['waktu' => $t, 'title' => 'Absensi Siswa dan Guru Berbasis QR Code'];
-      return view('scan/scan', $data);
-   }
+      return redirect()->to('/admin');
+      }
 
    public function cekKode()
    {

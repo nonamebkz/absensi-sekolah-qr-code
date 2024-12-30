@@ -27,12 +27,13 @@
                      <?php endif; ?>
 
                      <div class="form-group mt-4">
-                        <label for="nis">NIS</label>
-                        <input type="text" id="nis" class="form-control <?= $validation->getError('nis') ? 'is-invalid' : ''; ?>" name="nis" placeholder="1234" value="<?= old('nis') ?? $oldInput['nis']  ?? '' ?>">
-                        <div class="invalid-feedback">
-                           <?= $validation->getError('nis'); ?>
-                        </div>
-                     </div>
+    <label for="nis">NIS</label>
+    <input type="text" id="nis" class="form-control <?= $validation->getError('nis') ? 'is-invalid' : ''; ?>" name="nis" placeholder="1234" 
+    value="<?= old('nis') ?? $nis ?? '' ?>">
+    <div class="invalid-feedback">
+        <?= $validation->getError('nis'); ?>
+    </div>
+</div>
 
                      <div class="form-group mt-4">
                         <label for="nama">Nama Lengkap</label>
@@ -97,15 +98,6 @@
                            </div>
                         </div>
                      </div>
-
-                     <div class="form-group mt-5">
-                        <label for="hp">No HP</label>
-                        <input type="number" id="hp" name="no_hp" class="form-control <?= $validation->getError('no_hp') ? 'is-invalid' : ''; ?>" value="<?= old('no_hp') ?? $oldInput['no_hp'] ?? '' ?>">
-                        <div class="invalid-feedback">
-                           <?= $validation->getError('no_hp'); ?>
-                        </div>
-                     </div>
-
                      <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                   </form>
 

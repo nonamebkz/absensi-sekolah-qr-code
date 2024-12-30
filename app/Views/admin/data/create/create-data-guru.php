@@ -87,15 +87,6 @@
                         <label for="alamat">Alamat</label>
                         <input type="text" id="alamat" name="alamat" class="form-control" value="<?= old('alamat') ?? $oldInput['alamat'] ?? '' ?>">
                      </div>
-
-                     <div class="form-group mt-4">
-                        <label for="hp">No HP</label>
-                        <input type="number" id="hp" name="no_hp" class="form-control <?= $validation->getError('no_hp') ? 'is-invalid' : ''; ?>" placeholder="08969xxx" value="<?= old('no_hp') ?? $oldInput['no_hp'] ?? ''  ?>" required>
-                        <div class="invalid-feedback">
-                           <?= $validation->getError('no_hp'); ?>
-                        </div>
-                     </div>
-
                      <button type="submit" class="btn btn-success btn-block">Simpan</button>
                   </form>
 

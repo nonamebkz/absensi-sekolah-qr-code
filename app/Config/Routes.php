@@ -35,13 +35,13 @@ $routes->set404Override();
 // Scan
 $routes->get('/', 'Scan::index');
 
-$routes->group('scan', function (RouteCollection $routes) {
-   $routes->get('', 'Scan::index');
-   $routes->get('masuk', 'Scan::index/Masuk');
-   $routes->get('pulang', 'Scan::index/Pulang');
+// $routes->group('scan', function (RouteCollection $routes) {
+//    $routes->get('', 'Scan::index');
+//    $routes->get('masuk', 'Scan::index/Masuk');
+//    $routes->get('pulang', 'Scan::index/Pulang');
 
-   $routes->post('cek', 'Scan::cekKode');
-});
+//    $routes->post('cek', 'Scan::cekKode');
+// });
 
 
 
@@ -97,16 +97,16 @@ $routes->group('admin', function (RouteCollection $routes) {
 
 
    // admin lihat data guru
-   $routes->get('guru', 'Admin\DataGuru::index');
-   $routes->post('guru', 'Admin\DataGuru::ambilDataGuru');
+   // $routes->get('guru', 'Admin\DataGuru::index');
+   // $routes->post('guru', 'Admin\DataGuru::ambilDataGuru');
    // admin tambah data guru
-   $routes->get('guru/create', 'Admin\DataGuru::formTambahGuru');
-   $routes->post('guru/create', 'Admin\DataGuru::saveGuru');
+   // $routes->get('guru/create', 'Admin\DataGuru::formTambahGuru');
+   // $routes->post('guru/create', 'Admin\DataGuru::saveGuru');
    // admin edit data guru
-   $routes->get('guru/edit/(:any)', 'Admin\DataGuru::formEditGuru/$1');
-   $routes->post('guru/edit', 'Admin\DataGuru::updateGuru');
+   // $routes->get('guru/edit/(:any)', 'Admin\DataGuru::formEditGuru/$1');
+   // $routes->post('guru/edit', 'Admin\DataGuru::updateGuru');
    // admin hapus data guru
-   $routes->delete('guru/delete/(:any)', 'Admin\DataGuru::delete/$1');
+   // $routes->delete('guru/delete/(:any)', 'Admin\DataGuru::delete/$1');
 
 
    // admin lihat data absen siswa
@@ -116,24 +116,24 @@ $routes->group('admin', function (RouteCollection $routes) {
    $routes->post('absen-siswa/edit', 'Admin\DataAbsenSiswa::ubahKehadiran'); // ubah kehadiran siswa
 
    // admin lihat data absen guru
-   $routes->get('absen-guru', 'Admin\DataAbsenGuru::index');
-   $routes->post('absen-guru', 'Admin\DataAbsenGuru::ambilDataGuru'); // ambil guru berdasarkan tanggal
-   $routes->post('absen-guru/kehadiran', 'Admin\DataAbsenGuru::ambilKehadiran'); // ambil kehadiran guru
-   $routes->post('absen-guru/edit', 'Admin\DataAbsenGuru::ubahKehadiran'); // ubah kehadiran guru
+   // $routes->get('absen-guru', 'Admin\DataAbsenGuru::index');
+   // $routes->post('absen-guru', 'Admin\DataAbsenGuru::ambilDataGuru'); // ambil guru berdasarkan tanggal
+   // $routes->post('absen-guru/kehadiran', 'Admin\DataAbsenGuru::ambilKehadiran'); // ambil kehadiran guru
+   // $routes->post('absen-guru/edit', 'Admin\DataAbsenGuru::ubahKehadiran'); // ubah kehadiran guru
 
    // admin generate QR
-   $routes->get('generate', 'Admin\GenerateQR::index');
-   $routes->post('generate/siswa-by-kelas', 'Admin\GenerateQR::getSiswaByKelas'); // ambil siswa berdasarkan kelas
+   // $routes->get('generate', 'Admin\GenerateQR::index');
+   // $routes->post('generate/siswa-by-kelas', 'Admin\GenerateQR::getSiswaByKelas'); // ambil siswa berdasarkan kelas
 
    // Generate QR
-   $routes->post('generate/siswa', 'Admin\QRGenerator::generateQrSiswa');
-   $routes->post('generate/guru', 'Admin\QRGenerator::generateQrGuru');
+   // $routes->post('generate/siswa', 'Admin\QRGenerator::generateQrSiswa');
+   // $routes->post('generate/guru', 'Admin\QRGenerator::generateQrGuru');
 
    // Download QR
-   $routes->get('qr/siswa/download', 'Admin\QRGenerator::downloadAllQrSiswa');
-   $routes->get('qr/siswa/(:any)/download', 'Admin\QRGenerator::downloadQrSiswa/$1');
-   $routes->get('qr/guru/download', 'Admin\QRGenerator::downloadAllQrGuru');
-   $routes->get('qr/guru/(:any)/download', 'Admin\QRGenerator::downloadQrGuru/$1');
+   // $routes->get('qr/siswa/download', 'Admin\QRGenerator::downloadAllQrSiswa');
+   // $routes->get('qr/siswa/(:any)/download', 'Admin\QRGenerator::downloadQrSiswa/$1');
+   // $routes->get('qr/guru/download', 'Admin\QRGenerator::downloadAllQrGuru');
+   // $routes->get('qr/guru/(:any)/download', 'Admin\QRGenerator::downloadQrGuru/$1');
 
    // admin buat laporan
    $routes->get('laporan', 'Admin\GenerateLaporan::index');

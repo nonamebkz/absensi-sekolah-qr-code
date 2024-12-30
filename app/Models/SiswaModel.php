@@ -13,7 +13,6 @@ class SiswaModel extends Model
          'nama_siswa',
          'id_kelas',
          'jenis_kelamin',
-         'no_hp',
          'unique_code'
       ];
    }
@@ -79,19 +78,18 @@ class SiswaModel extends Model
          ->findAll();
    }
 
-   public function createSiswa($nis, $nama, $idKelas, $jenisKelamin, $noHp)
+   public function createSiswa($nis, $nama, $idKelas, $jenisKelamin)
    {
       return $this->save([
          'nis' => $nis,
          'nama_siswa' => $nama,
          'id_kelas' => $idKelas,
          'jenis_kelamin' => $jenisKelamin,
-         'no_hp' => $noHp,
          'unique_code' => generateToken()
       ]);
    }
 
-   public function updateSiswa($id, $nis, $nama, $idKelas, $jenisKelamin, $noHp)
+   public function updateSiswa($id, $nis, $nama, $idKelas, $jenisKelamin)
    {
       return $this->save([
          $this->primaryKey => $id,
@@ -99,7 +97,6 @@ class SiswaModel extends Model
          'nama_siswa' => $nama,
          'id_kelas' => $idKelas,
          'jenis_kelamin' => $jenisKelamin,
-         'no_hp' => $noHp,
       ]);
    }
 
@@ -172,7 +169,6 @@ class SiswaModel extends Model
                $data['nama_siswa'] = getCSVInputValue($item, 'nama_siswa');
                $data['id_kelas'] = getCSVInputValue($item, 'id_kelas', 'int');
                $data['jenis_kelamin'] = getCSVInputValue($item, 'jenis_kelamin');
-               $data['no_hp'] = getCSVInputValue($item, 'no_hp');
                $data['unique_code'] = generateToken();
 
                $this->insert($data);

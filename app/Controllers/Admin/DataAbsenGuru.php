@@ -75,7 +75,6 @@ class DataAbsenGuru extends BaseController
       $idGuru = $this->request->getVar('id_guru');
       $tanggal = $this->request->getVar('tanggal');
       $jamMasuk = $this->request->getVar('jam_masuk');
-      $jamKeluar = $this->request->getVar('jam_keluar');
       $keterangan = $this->request->getVar('keterangan');
 
       $cek = $this->presensiGuru->cekAbsen($idGuru, $tanggal);
@@ -86,7 +85,6 @@ class DataAbsenGuru extends BaseController
          $tanggal,
          $idKehadiran,
          $jamMasuk ?? NULL,
-         $jamKeluar ?? NULL,
          $keterangan
       );
 

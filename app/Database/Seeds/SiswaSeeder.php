@@ -36,7 +36,6 @@ class SiswaSeeder extends Seeder
                 'nama_siswa' => $this->faker->name($gender == 'Laki-laki' ? 'male' : 'female'),
                 'id_kelas' => $this->faker->randomElement($this->kelas)['id_kelas'],
                 'jenis_kelamin' => $gender,
-                'no_hp' => $this->faker->numerify('08##########'),
                 'unique_code' => $this->faker->uuid()
             ]);
         }

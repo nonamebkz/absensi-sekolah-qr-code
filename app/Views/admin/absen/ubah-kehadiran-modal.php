@@ -27,10 +27,6 @@
                <label for="jamMasuk">Jam masuk</label>
                <input class="form-control" type="time" name="jam_masuk" id="jamMasuk" value="<?= $presensi['jam_masuk'] ?? ''; ?>">
             </div>
-            <div class="col">
-               <label for="jamKeluar">Jam keluar</label>
-               <input class="form-control" type="time" name="jam_keluar" id="jamKeluar" value="<?= $presensi['jam_keluar'] ?? ''; ?>">
-            </div>
          </div>
          <label for="keterangan">Keterangan</label>
          <textarea id="keterangan" name="keterangan" class="custom-select"><?= trim($presensi['keterangan'] ?? ''); ?></textarea>

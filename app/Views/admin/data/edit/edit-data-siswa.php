@@ -98,15 +98,6 @@
                            </div>
                         </div>
                      </div>
-
-                     <div class="form-group mt-5">
-                        <label for="hp">No HP</label>
-                        <input type="number" id="hp" name="no_hp" class="form-control <?= $validation->getError('no_hp') ? 'is-invalid' : ''; ?>" value="<?= old('no_hp') ?? $oldInput['no_hp'] ?? $data['no_hp'] ?>">
-                        <div class="invalid-feedback">
-                           <?= $validation->getError('no_hp'); ?>
-                        </div>
-                     </div>
-
                      <button type="submit" class="btn btn-primary btn-block">Simpan</button>
                   </form>
 

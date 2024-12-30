@@ -23,7 +23,7 @@
                            $namaKelas =  $value['kelas'] . ' ' . $value['jurusan'];
                            ?>
                            <div class="col-md-3">
-                              <button id="kelas-<?= $idKelas; ?>" onclick="getSiswa(<?= $idKelas; ?>, '<?= $namaKelas; ?>')" class="btn btn-primary w-100">
+                              <button id="kelas-<?= $idKelas; ?>" onclick="getSiswa(<?= $idKelas; ?>)" class="btn btn-primary w-100">
                                  <?= $namaKelas; ?>
                               </button>
                            </div>
@@ -74,13 +74,12 @@
 </div>
 <script>
    var lastIdKelas;
-   var lastKelas;
 
    function onDateChange() {
-      if (lastIdKelas != null && lastKelas != null) getSiswa(lastIdKelas, lastKelas);
+      if (lastIdKelas != null) getSiswa(lastIdKelas);
    }
 
-   function getSiswa(idKelas, kelas) {
+   function getSiswa(idKelas) {
       var tanggal = $('#tanggal').val();
 
       updateBtn(idKelas);
@@ -89,7 +88,6 @@
          url: "<?= base_url('/admin/absen-siswa'); ?>",
          type: 'post',
          data: {
-            'kelas': kelas,
             'id_kelas': idKelas,
             'tanggal': tanggal
          },
@@ -108,7 +106,6 @@
       });
 
       lastIdKelas = idKelas;
-      lastKelas = kelas;
    }
 
    function updateBtn(id_btn) {
@@ -162,7 +159,7 @@
             // console.log(status);
 
             if (response['status']) {
-               getSiswa(lastIdKelas, lastKelas);
+               getSiswa(lastIdKelas);
                alert('Berhasil ubah kehadiran : ' + response['nama_siswa']);
             } else {
                alert('Gagal ubah kehadiran : ' + response['nama_siswa']);

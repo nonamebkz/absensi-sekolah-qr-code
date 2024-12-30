@@ -16,7 +16,6 @@ class PresensiSiswaModel extends Model implements PresensiInterface
       'id_kelas',
       'tanggal',
       'jam_masuk',
-      'jam_keluar',
       'id_kehadiran',
       'keterangan'
    ];
@@ -39,7 +38,6 @@ class PresensiSiswaModel extends Model implements PresensiInterface
          'id_kelas' => $idKelas,
          'tanggal' => $date,
          'jam_masuk' => $time,
-         // 'jam_keluar' => '',
          'id_kehadiran' => Kehadiran::Hadir->value,
          'keterangan' => ''
       ]);
@@ -48,7 +46,6 @@ class PresensiSiswaModel extends Model implements PresensiInterface
    public function absenKeluar(string $id, $time)
    {
       $this->update($id, [
-         'jam_keluar' => $time,
          'keterangan' => ''
       ]);
    }
@@ -68,7 +65,7 @@ class PresensiSiswaModel extends Model implements PresensiInterface
       return $this->setTable('tb_siswa')
          ->select('*')
          ->join(
-            "(SELECT id_presensi, id_siswa AS id_siswa_presensi, tanggal, jam_masuk, jam_keluar, id_kehadiran, keterangan FROM tb_presensi_siswa)tb_presensi_siswa",
+            "(SELECT id_presensi, id_siswa AS id_siswa_presensi, tanggal, jam_masuk,  id_kehadiran, keterangan FROM tb_presensi_siswa)tb_presensi_siswa",
             "{$this->table}.id_siswa = tb_presensi_siswa.id_siswa_presensi AND tb_presensi_siswa.tanggal = '$tanggal'",
             'left'
          )
@@ -115,7 +112,6 @@ class PresensiSiswaModel extends Model implements PresensiInterface
       $tanggal,
       $idKehadiran,
       $jamMasuk,
-      $jamKeluar,
       $keterangan
    ) {
       $presensi = $this->getPresensiByIdSiswaTanggal($idSiswa, $tanggal);
@@ -136,9 +132,6 @@ class PresensiSiswaModel extends Model implements PresensiInterface
          $data['jam_masuk'] = $jamMasuk;
       }
 
-      if ($jamKeluar != null) {
-         $data['jam_keluar'] = $jamKeluar;
-      }
 
       return $this->save($data);
    }

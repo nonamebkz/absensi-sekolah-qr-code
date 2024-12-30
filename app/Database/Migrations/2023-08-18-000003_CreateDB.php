@@ -20,24 +20,29 @@ class CreateDB extends Migration
             (4, 'Tanpa keterangan');");
 
         $this->forge->getConnection()->query("INSERT INTO tb_jurusan (jurusan) VALUES
-            ('OTKP'),
-            ('BDP'),
-            ('AKL'),
-            ('RPL');");
+            ('Jilid 1'),
+            ('Jilid 2'),
+            ('Jilid 3'),
+            ('Jilid 4'),
+            ('Jilid 5'),
+            ('Jilid 6'),
+            ('A'),
+            ('B'),
+            ('C'),
+            ('');");
 
         $this->forge->getConnection()->query("INSERT INTO tb_kelas (kelas, id_jurusan) VALUES
-            ('X', 1),
-            ('X', 2),
-            ('X', 3),
-            ('X', 4),
-            ('XI', 1),
-            ('XI', 2),
-            ('XI', 3),
-            ('XI', 4),
-            ('XII', 1),
-            ('XII', 2),
-            ('XII', 3),
-            ('XII', 4);");
+            ('Yanbu\'a', 1),
+            ('Yanbu\'a', 2),
+            ('Yanbu\'a', 3),
+            ('Yanbu\'a', 4),
+            ('Yanbu\'a', 5),
+            ('Yanbu\'a', 6),
+            ('AL-QURAN', 7),
+            ('AL-QURAN', 8),
+            ('AL-QURAN', 9),
+            ('Kitab', 10),
+            ('pemula', 10);");
 
         $this->forge->getConnection()->query("CREATE TABLE tb_guru (
             id_guru int(11) NOT NULL,
@@ -45,7 +50,6 @@ class CreateDB extends Migration
             nama_guru varchar(255) NOT NULL,
             jenis_kelamin ENUM('Laki-laki','Perempuan') NOT NULL,
             alamat text NOT NULL,
-            no_hp varchar(32) NOT NULL,
             unique_code varchar(64) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
@@ -54,7 +58,6 @@ class CreateDB extends Migration
             id_guru int(11) DEFAULT NULL,
             tanggal date NOT NULL,
             jam_masuk time DEFAULT NULL,
-            jam_keluar time DEFAULT NULL,
             id_kehadiran int(11) NOT NULL,
             keterangan varchar(255) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -66,7 +69,6 @@ class CreateDB extends Migration
             nama_siswa varchar(255) NOT NULL,
             id_kelas int(11) UNSIGNED NOT NULL,
             jenis_kelamin ENUM('Laki-laki','Perempuan') NOT NULL,
-            no_hp varchar(32) NOT NULL,
             unique_code varchar(64) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
@@ -76,7 +78,6 @@ class CreateDB extends Migration
             id_kelas int(11) UNSIGNED DEFAULT NULL,
             tanggal date NOT NULL,
             jam_masuk time DEFAULT NULL,
-            jam_keluar time DEFAULT NULL,
             id_kehadiran int(11) NOT NULL,
             keterangan varchar(255) NOT NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
